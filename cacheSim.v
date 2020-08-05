@@ -16,7 +16,7 @@ module cacheSim(input[14:0] adr,input clk,rst,output[12:0] HitRate);
 	assign hit = (tagOut == adr[14:12]) & valid;
 	assign cacheWrite = ~hit;
 	assign memRead = ~hit;
-	assign memWrite = valid & cacheWrite;
+	assign memWrite = 1'b0;
 	
   Counter  co(.clk(clk), .rst(rst), .CEn(hit), .count(HitRate));  
 endmodule
